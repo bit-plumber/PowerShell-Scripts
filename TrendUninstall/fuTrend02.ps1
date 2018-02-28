@@ -95,7 +95,7 @@ $CHKDIR = $PFx64
 $DIREXISTS = Test-Path $CHKDIR
 If($DIREXISTS -eq $true)
     {
-        Remove-Item -Path $PFx86 -Recurse -Force -ErrorAction SilentlyContinue
+        Remove-Item -Path $PFx64 -Recurse -Force -ErrorAction SilentlyContinue
     }
 #
 #
