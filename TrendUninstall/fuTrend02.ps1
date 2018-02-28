@@ -144,8 +144,3 @@ foreach($VAL in $VALS)
         }
     }
 #
-#
-# Install Sophos Endpoint Agent and Assign Device to --devicegroup=xxxxxxx  <---Change this to whatever group installing for
-#
-& '\\SERVER\SHARE\SophosSetup_EndptIX.exe' '--quiet' '--noproxydetection' '--devicegroup=lab.local.computers'
-
