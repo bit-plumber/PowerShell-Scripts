@@ -1,0 +1,3 @@
+KEY,VALUE
+HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run,OfficeScanNT Monitor
+HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Run,OfficeScanNT Monitor 
