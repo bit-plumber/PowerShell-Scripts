@@ -12,3 +12,12 @@ In summary, the script accomplishes the following:
 
 Disclaimer:  I am no PowerShell guru.  In fact the vast majority of my PowerShell knowledge is baked into this script.  
 			 If you see a better way to do anything, please feel free to contribute.
+
+
+## To Do
+
+* Create Windows Restore Point before any actions are taken
+* Removal of Non-Plug-And-Play Drivers on Win7 machines
+* Create config file to supply server names, passwords, etc.
+* Better methods of timing than default Sleep 120/30/etc.
+* etc.
