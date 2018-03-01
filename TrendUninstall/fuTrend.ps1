@@ -1,4 +1,4 @@
-﻿# Filename:  fuTrend02.ps1
+﻿# Filename:  fuTrend.ps1
 #
 # Purpose:   Uninstall Trend Micro Officescan XG because they are an awful awful company 
 #            that forced me to create a script to do their job for them.
