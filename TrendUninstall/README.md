@@ -1,7 +1,8 @@
-# TrendUninstall
+# TrendUninstall (fuTrend.ps1)
 A script I was forced to write to remove the Trend Micro OfficeScan XG client from Win7(coming soon) and Win10 workstations.
 
-None of the methods that Trend Micro provided would work in my environment, so I took upon myself to build a better sledgehammer.
+None of the methods that Trend Micro provided would work in my environment, so I took upon myself to build a better sledgehammer.  
+In summary, the script accomplishes the following:
 
 	* Unloads the Trend OfficeScan client.  
 	* Closes all Trend Micro Processes and Services
