@@ -13,14 +13,13 @@
 #            https://stackify.com/powershell-commands-every-developer-should-know/
 #
 #
-# Milestones: Ver0.1   - Successfully completed uninstallation of TM andd install of Sophos
+# Milestones: Ver0.1   - Successfully completed uninstallation of TM on
 #                        x86 Windows 10 VM. (2018.02.27)
 #
 #
-#             Ver0.2   - Successfully completed uninstallation of TM andd install of Sophos
-#                        x86 & x64 Windows 10 VMs. Rewrote code to not branch for x86 or x64, but to check
-#                        whether x86 or x64 filestructure is in place and call 
-#                        appropriate commands where they differ. (2018.02.28)
+#             Ver0.2   - Successfully completed uninstallation of TM on x86 & x64 Windows 10 VMs. 
+#                        Rewrote code to not branch for x86 or x64, but to check whether x86 or x64  
+#                        filestructure and call appropriate commands where they differ. (2018.02.28)
 #
 #
 # SET VARIABLES
