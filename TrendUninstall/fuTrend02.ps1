@@ -15,20 +15,18 @@
 #
 # Milestones: Ver0.1   - Successfully completed uninstallation of TM andd install of Sophos
 #                        x86 Windows 10 VM. (2018.02.27)
-#             
+#
+#
 #             Ver0.2   - Successfully completed uninstallation of TM andd install of Sophos
 #                        x86 & x64 Windows 10 VMs. Rewrote code to not branch for x86 or x64, but to check
 #                        whether x86 or x64 filestructure is in place and call 
 #                        appropriate commands where they differ. (2018.02.28)
 #
 #
-#
 # SET VARIABLES
 #
-# Replace with the file location on your network for the below files.  
-# See readme.txt for more info.
-#
-$SRCPTH = "\\SERVER\SHARE"
+# Replace with the file location on your network for the installed files.  See readme.txt for more info.
+$SRCPTH = "\\SERVER\SHARE\TrendUninstall\Files"
 $SOPHOS = "$SRCPTH\SophosSetup_EndptIX.exe"
 $KEYFILE = "$SRCPTH\TMRegKeys.txt"
 $SUBKEYS = "$SRCPTH\TMSubKeys.txt"
@@ -38,7 +36,6 @@ $PROCFILE = "$SRCPTH\TMProcList.txt"
 $PFx86 = "C:\Program Files\Trend Micro"
 $PFx64 = "C:\Program Files (x86)\Trend Micro"
 $PDATA = "C:\ProgramData\Trend Micro"
-#
 #
 # Determines if local host is x86 or x64
 $PROCARC = $env:PROCESSOR_ARCHITECTURE
@@ -56,7 +53,7 @@ $FILEEXISTS = Test-Path $CHKFILE
 If($FILEEXISTS -eq $true)
     {
         #Run the Unload switch against PccNTMon.exe, supplying the unload password ($PASSWORD) if one exists.
-        & 'C:\Program Files\Trend Micro\OfficeScan Client\PccNTMon.exe' '-n' '*YOURPASSWORD*'
+        & 'C:\Program Files\Trend Micro\OfficeScan Client\PccNTMon.exe' '-n' '**PASSWORD**'
         # Allow time for this process to complete.  TMBMSRV must be stopped before any other services can be.
         Sleep 120
     }
@@ -66,7 +63,7 @@ $FILEEXISTS = Test-Path $CHKFILE
 If($FILEEXISTS -eq $true)
     {
         #Run the Unload switch against PccNTMon.exe, supplying the unload password ($PASSWORD) if one exists.
-        & 'C:\Program Files (x86)\Trend Micro\OfficeScan Client\PccNTMon.exe' '-n' '*YOURPASSWORD*'
+        & 'C:\Program Files (x86)\Trend Micro\OfficeScan Client\PccNTMon.exe' '-n' '**PASSWORD**'
         # Allow time for this process to complete.  TMBMSRV must be stopped before any other services can be.
         Sleep 120
     }
@@ -134,13 +131,13 @@ foreach($KEY in $KEYS)
 #
 # Remove Trend Micro Values from Misc. Keys
 #
-$VALS = Import-Csv $SUBKEYS
+$VALS = Get-Content $SUBKEYS
 foreach($VAL in $VALS)
     {
-        $VALEXISTS = Test-Path $VAL.KEY
+        $VALEXISTS = Test-Path $VAL
         If($VALEXISTS -eq $true)
         {
-            Remove-ItemProperty -Path $VAL.KEY -Name $VAL.VALUE -Force
+            Remove-ItemProperty -Name $VAL -Force
         }
     }
 #
