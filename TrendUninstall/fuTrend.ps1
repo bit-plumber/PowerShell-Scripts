@@ -26,7 +26,6 @@
 #
 # Replace with the file location on your network for the installed files.  See readme.txt for more info.
 $SRCPTH = "\\SERVER\SHARE\TrendUninstall\Files"
-$SOPHOS = "$SRCPTH\SophosSetup_EndptIX.exe"
 $KEYFILE = "$SRCPTH\TMRegKeys.txt"
 $SUBKEYS = "$SRCPTH\TMSubKeys.txt"
 $PROCFILE = "$SRCPTH\TMProcList.txt"
