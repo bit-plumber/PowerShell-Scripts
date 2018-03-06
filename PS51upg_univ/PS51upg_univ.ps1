@@ -178,7 +178,7 @@ function Pause
 # Use WSUSOffline to install missing prerequisites and Windows Management Framework / PowerShell 5.1
 #
 # Copy WSUSOffline files for host build to host computer
-  $srcPath = "\\svr2016-s02\wsus\win7_dotNet_wmf5"
+  $srcPath = "\\SERVER\SHARE\"
   $dstPath = "C:\temp"
   if(!(Test-Path -Path $dstPath))
   {
