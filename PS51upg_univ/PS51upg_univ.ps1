@@ -26,7 +26,7 @@
 #
 #
 # If set to "Continue" errors will prompt.  If set to "SilentlyContinue", script will continue if error is thrown.
-$defaultaction = "Continue"
+$defaultaction = "SilentlyContinue"
 #
 #
 # HostOS-Info() parses a registry string for OS information and returns a subset we are looking for.
@@ -144,8 +144,6 @@ function Pause
     Write-Host
   }
 }
-
-#
 #
 # Convert Function Returns into Global Variables
 #
@@ -157,9 +155,6 @@ function Pause
 # Do All The Things
 #
   CLS
-  #echo $OSInfo | Format-Table -Autosize -Wrap
-  #echo $dotNetInfo | Format-Table -AutoSize -Wrap
-  #echo $psVerInfo |Format-Table -AutoSize -Wrap
 #
 # Check if host is running Windows Management Framework v5.1.  If not, install it along with any necessary prerequisites.
   PSver-Info
@@ -178,7 +173,9 @@ function Pause
 # Use WSUSOffline to install missing prerequisites and Windows Management Framework / PowerShell 5.1
 #
 # Copy WSUSOffline files for host build to host computer
-  $srcPath = "\\SERVER\SHARE\"
+# You will need to download WSUSOffline and run UpdateGenerator.exe to create update folder for each possible device type.  Store the output directories on a file server accessible to the host machine with ANONYMOUS LOGIN given read access.  Set $srcPath to this share.
+#
+  $srcPath = "\\SERVER\SHARE\win7x86_dotNet_wmf5"
   $dstPath = "C:\temp"
   if(!(Test-Path -Path $dstPath))
   {
@@ -189,4 +186,4 @@ function Pause
   # Call WSUSOffline with switches to create automated installation of prereqs
   # This will exit this script, reboot the computer and begin the WSUSOffline upgrade PROCESSOR_ARCHITECTURE
   #
-  cmd.exe /C " "$dstPath\win7_dotNet_wmf5\update.cmd" /verify /skipieinst /instdotnet4 /instpsh /instwmf /seconly /autoreboot"
+  cmd.exe /C " "$dstPath\win7x86_dotNet_wmf5\update.cmd" /verify /skipieinst /instdotnet4 /instpsh /instwmf /seconly /autoreboot"
